@@ -27,11 +27,11 @@ java_library_host {
     ],
 
     libs: [
-        "//external/auto:auto_service_annotations",
+        "auto_service_annotations",
     ],
 
     plugins: [
-        "//external/auto:auto_service_plugin",
+        "auto_service_plugin",
     ],
 }
 
