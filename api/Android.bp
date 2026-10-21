@@ -120,7 +120,6 @@ combined_apis {
         "framework-sdksandbox",
         "framework-tethering",
         "framework-uwb",
-        "framework-virtualization",
         "framework-wifi",
         "i18n.module.public.api",
     ],
