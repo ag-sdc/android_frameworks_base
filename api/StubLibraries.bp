@@ -798,7 +798,6 @@ java_defaults {
     name: "android_test_stubs_current_contributions",
     api_surface: "test",
     api_contributions: [
-        "framework-virtualization.stubs.source.test.api.contribution",
         "framework-location.stubs.source.test.api.contribution",
     ],
 }
