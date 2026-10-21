@@ -353,7 +353,7 @@ java_defaults {
         include_dirs: [
             "prebuilts/target/framework/frameworks/av/aidl",
             "frameworks/native/libs/permission/aidl",
-            "packages/modules/Bluetooth/framework/aidl-export",
+            "prebuilts/target/framework/packages/modules/Bluetooth/framework/aidl-export",
             "packages/modules/Connectivity/framework/aidl-export",
             "packages/modules/Media/apex/aidl/stable",
             "prebuilts/target/framework/hardware/interfaces/biometrics/common/aidl",
