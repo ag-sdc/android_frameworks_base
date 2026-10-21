@@ -21,6 +21,7 @@ package {
 
 cc_library_shared {
     name: "librs_jni",
+    enabled: false,
 
     cpp_std: "gnu++2b",
     srcs: ["android_renderscript_RenderScript.cpp"],
@@ -43,8 +44,6 @@ cc_library_shared {
         "jni_headers",
         "libbase_headers",
     ],
-
-    include_dirs: ["frameworks/rs"],
 
     cflags: [
         "-Wno-unused-parameter",

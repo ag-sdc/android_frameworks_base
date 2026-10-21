@@ -210,7 +210,7 @@ doc_defaults {
     // TODO(b/169090544): remove below aidl includes.
     aidl: {
         include_dirs: [
-            "frameworks/av/aidl",
+            "prebuilts/target/framework/frameworks/av/aidl",
             "frameworks/base/media/aidl",
             "frameworks/native/libs/permission/aidl",
         ],

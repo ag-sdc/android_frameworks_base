@@ -91,7 +91,7 @@ cc_defaults {
         },
         host: {
             include_dirs: [
-                "external/vulkan-headers/include",
+                "prebuilts/host/external/vulkan-headers/include",
             ],
             cflags: [
                 "-Wno-unused-variable",

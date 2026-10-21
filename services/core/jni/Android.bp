@@ -89,7 +89,7 @@ cc_library_static {
         "frameworks/native/services",
         "frameworks/native/libs/math/include",
         "frameworks/native/libs/ui/include",
-        "system/gatekeeper/include",
+        "tests_stubs/include",
         "system/memory/libmeminfo/include",
     ],
 

@@ -106,10 +106,12 @@ custom_platform_bootclasspath {
             apex: "com.android.media",
             module: "com.android.media-bootclasspath-fragment",
         },
+        /*
         {
             apex: "com.android.mediaprovider",
             module: "com.android.mediaprovider-bootclasspath-fragment",
         },
+        */
         {
             apex: "com.android.ondevicepersonalization",
             module: "com.android.ondevicepersonalization-bootclasspath-fragment",
