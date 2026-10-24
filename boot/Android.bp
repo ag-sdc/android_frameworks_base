@@ -146,7 +146,6 @@ custom_platform_bootclasspath {
         },
         /*
         {
-            apex: "com.android.virt",
             module: "com.android.virt-bootclasspath-fragment",
         },
         */

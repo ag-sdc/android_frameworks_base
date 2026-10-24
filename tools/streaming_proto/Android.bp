@@ -38,7 +38,7 @@ cc_defaults {
         "-Werror",
     ],
 
-    static_libs: ["libprotoc"],
+    shared_libs: ["libprotoc"],
 }
 
 cc_binary_host {
