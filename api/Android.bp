@@ -429,7 +429,6 @@ java_defaults {
 }
 
 build = [
-    "ApiDocs.bp",
     "StubLibraries.bp",
 ]
 
