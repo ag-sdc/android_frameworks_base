@@ -85,7 +85,7 @@ cc_library_shared_for_libandroid_runtime {
     ],
 
     include_dirs: [
-        "external/skia/include/private",
+        "prebuilts/target/external/skia/include/private",
         "frameworks/base/media/jni",
         "system/media/camera/include",
         "system/media/private/camera/include",
@@ -380,6 +380,7 @@ cc_library_shared_for_libandroid_runtime {
             ],
         },
         host: {
+            compile_multilib: "64",
             cflags: [
                 "-Wno-unused-const-variable",
                 "-Wno-unused-function",

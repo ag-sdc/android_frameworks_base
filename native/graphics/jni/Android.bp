@@ -67,6 +67,7 @@ cc_library_shared {
             version_script: "libjnigraphics.map.txt",
         },
         host: {
+            compile_multilib: "64",
             header_libs: [
                 "libnativewindow_headers",
             ],

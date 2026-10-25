@@ -76,17 +76,17 @@ cc_defaults {
     ],
 
     include_dirs: [
-        "external/skia/include/private",
-        "external/skia/src/core",
+        "prebuilts/target/external/skia/include/private",
+        "prebuilts/target/external/skia/src/core",
     ],
 
     target: {
         android: {
             include_dirs: [
-                "external/skia/src/image",
-                "external/skia/src/utils",
-                "external/skia/src/gpu",
-                "external/skia/src/shaders",
+                "prebuilts/target/external/skia/src/image",
+                "prebuilts/target/external/skia/src/utils",
+                "prebuilts/target/external/skia/src/gpu",
+                "prebuilts/target/external/skia/src/shaders",
             ],
         },
         host: {
@@ -393,9 +393,9 @@ cc_defaults {
     ],
 
     include_dirs: [
-        "external/skia/include/private",
-        "external/skia/src/codec",
-        "external/skia/src/core",
+        "prebuilts/target/external/skia/include/private",
+        "prebuilts/target/external/skia/src/codec",
+        "prebuilts/target/external/skia/src/core",
     ],
 
     shared_libs: [
@@ -643,6 +643,7 @@ cc_defaults {
             cflags: ["-Wno-implicit-fallthrough"],
         },
         host: {
+            compile_multilib: "64",
             header_libs: [
                 "libnativebase_headers",
                 "libnativedisplay_headers",
