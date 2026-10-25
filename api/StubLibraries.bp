@@ -1131,7 +1131,7 @@ java_library {
     libs: [
         "framework-annotations-lib",
         "unsupportedappusage",
-        "ravenwood-annotations",
+        "ravenwood-annotations-lib",
     ],
     srcs: [
         ":hwbinder-stubs-srcs",
