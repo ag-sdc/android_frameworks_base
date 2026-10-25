@@ -36,6 +36,13 @@ filegroup {
 }
 
 filegroup {
+    name: "framework-wifi-annotations",
+    srcs: ["annotations/android/net/wifi/WifiAnnotations.java"],
+    path: "annotations",
+    visibility: ["//visibility:public"],
+}
+
+filegroup {
     name: "framework-wifi-non-updatable-sources",
     srcs: [
         // TODO(b/146011398) package android.net.wifi is now split amongst 2 jars: framework.jar and

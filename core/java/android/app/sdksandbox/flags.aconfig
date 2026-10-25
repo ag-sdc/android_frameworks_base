@@ -1,0 +1,30 @@
+package: "com.android.sdksandbox.flags"
+container: "com.android.adservices"
+
+flag {
+    name: "sandbox_activity_sdk_based_context"
+    namespace: "adservices"
+    description: "SDK Sandbox activity sdk based context flag."
+    bug: "300000000"
+}
+
+flag {
+    name: "sdk_sandbox_instrumentation_info"
+    namespace: "adservices"
+    description: "SDK Sandbox instrumentation info flag."
+    bug: "300000000"
+}
+
+flag {
+    name: "selinux_sdk_sandbox_audit"
+    namespace: "adservices"
+    description: "SELinux SDK Sandbox audit flag."
+    bug: "300000000"
+}
+
+flag {
+    name: "sdk_sandbox_uid_to_app_uid_api"
+    namespace: "adservices"
+    description: "SDK Sandbox UID to app UID API flag."
+    bug: "300000000"
+}

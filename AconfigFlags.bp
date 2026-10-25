@@ -1194,3 +1194,17 @@ java_aconfig_library {
     aconfig_declarations: "android.systemserver.flags-aconfig",
     defaults: ["framework-minus-apex-aconfig-java-defaults"],
 }
+
+// SdkSandbox
+aconfig_declarations {
+    name: "sdk_sandbox_flags",
+    package: "com.android.sdksandbox.flags",
+    container: "com.android.adservices",
+    srcs: ["core/java/android/app/sdksandbox/flags.aconfig"],
+}
+
+java_aconfig_library {
+    name: "sdk_sandbox_flags_lib",
+    aconfig_declarations: "sdk_sandbox_flags",
+    defaults: ["framework-minus-apex-aconfig-java-defaults"],
+}
