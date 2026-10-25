@@ -1125,26 +1125,12 @@ droidstubs {
 // libraries.
 /////////////////////////////////////////////////////////////////////
 
-droidstubs {
-    name: "hwbinder-stubs-docs",
-    srcs: [":hwbinder-stubs-srcs"],
-    libs: ["framework-annotations-lib"],
-    installable: false,
-    sdk_version: "core_platform",
-    annotations_enabled: true,
-    previous_api: ":android.api.public.latest",
-    merge_annotations_dirs: [
-        "metalava-manual",
-    ],
-    flags: priv_apps,
-}
-
 java_library {
     name: "hwbinder.stubs",
     sdk_version: "core_current",
     libs: ["framework-annotations-lib"],
     srcs: [
-        ":hwbinder-stubs-docs",
+        ":hwbinder-stubs-srcs",
     ],
     visibility: ["//visibility:public"],
 }
