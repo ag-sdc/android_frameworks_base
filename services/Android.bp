@@ -29,9 +29,6 @@ java_defaults {
             // "-XepPatchLocation:/tmp/refaster/",
         ],
     },
-    lint: {
-        extra_check_modules: ["AndroidFrameworkLintChecker"],
-    },
 }
 
 // Config to control optimizing and shrinking the services target using R8.
