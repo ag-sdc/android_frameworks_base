@@ -26,6 +26,7 @@ gensrcs {
         "  --plugin=$(location protoc-gen-javastream) " +
         "  --javastream_out=$(genDir)/$(in) " +
         "  -Iexternal/protobuf/src " +
+        "  -Iprebuilts/external/protobuf/include " +
         "  -I . " +
         "  $(in) " +
         "&& $(location soong_zip) -jar -o $(out) -C $(genDir)/$(in) -D $(genDir)/$(in)",
@@ -59,6 +60,7 @@ gensrcs {
         "  --plugin=$(location protoc-gen-cppstream) " +
         "  --cppstream_out=$(genDir) " +
         "  -Iexternal/protobuf/src " +
+        "  -Iprebuilts/external/protobuf/include " +
         "  -I . " +
         "  $(in)",
 
@@ -92,6 +94,7 @@ gensrcs {
         "  --plugin=$(location protoc-gen-javastream) " +
         "  --javastream_out=$(genDir)/$(in) " +
         "  -Iexternal/protobuf/src " +
+        "  -Iprebuilts/external/protobuf/include " +
         "  -I . " +
         "  $(in) " +
         "&& $(location soong_zip) -jar -o $(out) -C $(genDir)/$(in) -D $(genDir)/$(in)",
@@ -128,6 +131,7 @@ java_library_host {
     proto: {
         include_dirs: [
             "external/protobuf/src",
+            "prebuilts/external/protobuf/include",
             "frameworks/proto_logging/stats",
         ],
         type: "full",
@@ -146,7 +150,10 @@ java_library {
     proto: {
         type: "nano",
         output_params: ["store_unknown_fields=true"],
-        include_dirs: ["external/protobuf/src"],
+        include_dirs: [
+            "external/protobuf/src",
+            "prebuilts/external/protobuf/include",
+        ],
     },
     exclude_srcs: [
         "core/proto/android/privacy.proto",
@@ -172,7 +179,10 @@ java_library {
     name: "platformprotoslite",
     proto: {
         type: "lite",
-        include_dirs: ["external/protobuf/src"],
+        include_dirs: [
+            "external/protobuf/src",
+            "prebuilts/external/protobuf/include",
+        ],
     },
 
     srcs: [
@@ -202,6 +212,7 @@ cc_defaults {
         export_proto_headers: true,
         include_dirs: [
             "external/protobuf/src",
+            "prebuilts/external/protobuf/include",
         ],
     },
 

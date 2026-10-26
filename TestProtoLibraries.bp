@@ -24,6 +24,7 @@ java_library_host {
     proto: {
         include_dirs: [
             "external/protobuf/src",
+            "prebuilts/external/protobuf/include",
             "frameworks/proto_logging/stats",
         ],
         type: "full",
