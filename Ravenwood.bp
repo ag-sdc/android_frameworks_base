@@ -12,6 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+genrule_defaults {
+    name: "ravenwood-internal-only-visibility-genrule",
+    visibility: [
+        "//visibility:public",
+    ],
+}
+
+java_defaults {
+    name: "ravenwood-internal-only-visibility-java",
+    visibility: [
+        "//visibility:public",
+    ],
+}
+
+filegroup_defaults {
+    name: "ravenwood-internal-only-visibility-filegroup",
+    visibility: [
+        "//visibility:public",
+    ],
+}
+
 // We need this "trampoline" rule to force soong to give a host-side jar to
 // framework-minus-apex.ravenwood-base. Otherwise, soong would mix up the arch (?) and we'd get
 // a dex jar.
