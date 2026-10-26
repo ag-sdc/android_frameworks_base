@@ -33,6 +33,14 @@ filegroup_defaults {
     ],
 }
 
+java_library {
+    name: "hoststubgen-helper-runtime.ravenwood",
+    sdk_version: "core_current",
+    visibility: [
+        "//visibility:public",
+    ],
+}
+
 // We need this "trampoline" rule to force soong to give a host-side jar to
 // framework-minus-apex.ravenwood-base. Otherwise, soong would mix up the arch (?) and we'd get
 // a dex jar.
