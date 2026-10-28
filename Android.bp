@@ -354,7 +354,7 @@ java_defaults {
             "prebuilts/target/framework/frameworks/av/aidl",
             "frameworks/native/libs/permission/aidl",
             "prebuilts/target/framework/packages/modules/Bluetooth/framework/aidl-export",
-            "packages/modules/Connectivity/framework/aidl-export",
+            "prebuilts/target/packages/modules/Connectivity/framework/aidl-export",
             "packages/modules/Media/apex/aidl/stable",
             "prebuilts/target/framework/hardware/interfaces/biometrics/common/aidl",
             "prebuilts/target/framework/hardware/interfaces/biometrics/fingerprint/aidl",
