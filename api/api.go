@@ -463,6 +463,24 @@ func createApiContributionDefaults(ctx android.LoadHookContext, modules []string
 	}
 }
 
+func sdkPrebuiltForLibrary(name string) string {
+	switch name {
+	case "android_stubs_current", "android_stubs_current_exportable":
+		return "sdk_public_current_android"
+	case "android_system_stubs_current", "android_system_stubs_current_exportable":
+		return "sdk_system_current_android"
+	case "android_test_stubs_current", "android_test_stubs_current_exportable",
+		"android_test_frameworks_core_stubs_current":
+		return "sdk_test_current_android"
+	case "android_module_lib_stubs_current", "android_module_lib_stubs_current_exportable":
+		return "sdk_module-lib_current_android"
+	case "android_system_server_stubs_current", "android_system_server_stubs_current_exportable":
+		return "sdk_system-server_current_android"
+	default:
+		return ""
+	}
+}
+
 func createFullApiLibraries(ctx android.LoadHookContext) {
 	javaLibraryNames := []string{
 		"android_stubs_current",
@@ -476,11 +494,7 @@ func createFullApiLibraries(ctx android.LoadHookContext) {
 	for _, libraryName := range javaLibraryNames {
 		props := libraryProps{}
 		props.Name = proptools.StringPtr(libraryName)
-		staticLib := libraryName + ".from-source"
-		if ctx.Config().BuildFromTextStub() {
-			staticLib = libraryName + ".from-text"
-		}
-		props.Static_libs = []string{staticLib}
+		props.Static_libs = []string{sdkPrebuiltForLibrary(libraryName)}
 		props.Defaults = []string{"android.jar_defaults"}
 		props.Visibility = []string{"//visibility:public"}
 		props.Is_stubs_module = proptools.BoolPtr(true)
@@ -501,8 +515,7 @@ func createFullExportableApiLibraries(ctx android.LoadHookContext) {
 	for _, libraryName := range javaLibraryNames {
 		props := libraryProps{}
 		props.Name = proptools.StringPtr(libraryName)
-		staticLib := libraryName + ".from-source"
-		props.Static_libs = []string{staticLib}
+		props.Static_libs = []string{sdkPrebuiltForLibrary(libraryName)}
 		props.Defaults = []string{"android.jar_defaults"}
 		props.Visibility = []string{"//visibility:public"}
 		props.Is_stubs_module = proptools.BoolPtr(true)
