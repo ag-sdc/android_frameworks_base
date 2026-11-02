@@ -358,14 +358,35 @@ func createMergedFrameworkImpl(ctx android.LoadHookContext, modules []string) {
 	}
 }
 
+var updatable_mainline_module_libs = []string{
+	"sdk_module-lib_current_framework-adservices",
+	"sdk_module-lib_current_framework-appsearch",
+	"sdk_module-lib_current_framework-bluetooth",
+	"sdk_module-lib_current_framework-configinfrastructure",
+	"sdk_module-lib_current_framework-connectivity",
+	"sdk_module-lib_current_framework-connectivity-t",
+	"sdk_module-lib_current_framework-devicelock",
+	"sdk_module-lib_current_framework-healthfitness",
+	"sdk_module-lib_current_framework-media",
+	"sdk_module-lib_current_framework-mediaprovider",
+	"sdk_module-lib_current_framework-ondevicepersonalization",
+	"sdk_module-lib_current_framework-permission",
+	"sdk_module-lib_current_framework-permission-s",
+	"sdk_module-lib_current_framework-scheduling",
+	"sdk_module-lib_current_framework-sdkextensions",
+	"sdk_module-lib_current_framework-sdksandbox",
+	"sdk_module-lib_current_framework-statsd",
+	"sdk_module-lib_current_framework-tethering",
+	"sdk_module-lib_current_framework-uwb",
+	"sdk_module-lib_current_framework-virtualization",
+	"sdk_module-lib_current_framework-wifi",
+	"sdk_module-lib_current_android.net.ipsec.ike",
+}
+
 func createMergedFrameworkModuleLibExportableStubs(ctx android.LoadHookContext, modules []string) {
-	// The user of this module compiles against the "core" SDK and against non-updatable modules,
-	// so remove to avoid dupes.
-	modules = removeAll(modules, core_libraries_modules)
-	modules = removeAll(modules, non_updatable_modules)
 	props := libraryProps{}
 	props.Name = proptools.StringPtr("framework-updatable-stubs-module_libs_api-exportable")
-	props.Static_libs = transformArray(modules, "", ".stubs.exportable.module_lib")
+	props.Static_libs = updatable_mainline_module_libs
 	props.Sdk_version = proptools.StringPtr("module_current")
 	props.Visibility = []string{"//frameworks/base"}
 	props.Is_stubs_module = proptools.BoolPtr(true)
@@ -373,13 +394,9 @@ func createMergedFrameworkModuleLibExportableStubs(ctx android.LoadHookContext, 
 }
 
 func createMergedFrameworkModuleLibStubs(ctx android.LoadHookContext, modules []string) {
-	// The user of this module compiles against the "core" SDK and against non-updatable modules,
-	// so remove to avoid dupes.
-	modules = removeAll(modules, core_libraries_modules)
-	modules = removeAll(modules, non_updatable_modules)
 	props := libraryProps{}
 	props.Name = proptools.StringPtr("framework-updatable-stubs-module_libs_api")
-	props.Static_libs = transformArray(modules, "", ".stubs.module_lib")
+	props.Static_libs = updatable_mainline_module_libs
 	props.Sdk_version = proptools.StringPtr("module_current")
 	props.Visibility = []string{"//frameworks/base"}
 	props.Is_stubs_module = proptools.BoolPtr(true)
