@@ -366,6 +366,7 @@ var updatable_mainline_module_libs = []string{
 	"sdk_module-lib_current_framework-connectivity",
 	"sdk_module-lib_current_framework-connectivity-t",
 	"sdk_module-lib_current_framework-devicelock",
+	"sdk_module-lib_current_framework-graphics",
 	"sdk_module-lib_current_framework-healthfitness",
 	"sdk_module-lib_current_framework-media",
 	"sdk_module-lib_current_framework-mediaprovider",
