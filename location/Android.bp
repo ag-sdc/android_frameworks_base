@@ -15,22 +15,15 @@ filegroup {
     ],
 }
 
-java_sdk_library {
-    name: "framework-location",
+java_library {
+    name: "framework-location.impl",
     srcs: [
         ":framework-location-sources",
     ],
-    defaults: ["framework-non-updatable-unbundled-defaults"],
-    permitted_packages: [
-        "android.location",
-        "com.android.internal.location",
-    ],
     libs: [
         "app-compat-annotations",
-        "unsupportedappusage", // for android.compat.annotation.UnsupportedAppUsage
-    ],
-    hidden_api_packages: [
-        "com.android.internal.location",
+        "unsupportedappusage",
+        "framework-minus-apex-headers",
     ],
     aidl: {
         include_dirs: [
@@ -38,6 +31,18 @@ java_sdk_library {
             "frameworks/base/core/java",
         ],
     },
+    sdk_version: "core_platform",
+    installable: false,
+}
+
+java_library {
+    name: "framework-location",
+    static_libs: [
+        "framework-location.impl",
+    ],
+    sdk_version: "core_platform",
+    installable: false,
+    visibility: ["//visibility:public"],
 }
 
 platform_compat_config {
