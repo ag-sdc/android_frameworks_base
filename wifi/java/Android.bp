@@ -38,7 +38,6 @@ filegroup {
 filegroup {
     name: "framework-wifi-annotations",
     srcs: [
-        "annotations/android/net/wifi/UriParserResults.java",
         "annotations/android/net/wifi/WifiAnnotations.java",
     ],
     path: "annotations",
