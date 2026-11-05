@@ -186,7 +186,7 @@ import android.os.IncidentManager;
 import android.os.PerformanceHintManager;
 import android.os.PermissionEnforcer;
 import android.os.PowerManager;
-import android.os.ProfilingFrameworkInitializer;
+// import android.os.ProfilingFrameworkInitializer;
 import android.os.RecoverySystem;
 import android.os.SecurityStateManager;
 import android.os.ServiceManager;
@@ -1666,9 +1666,11 @@ public final class SystemServiceRegistry {
             if (android.permission.flags.Flags.enhancedConfirmationModeApisEnabled()) {
                 EnhancedConfirmationFrameworkInitializer.registerServiceWrappers();
             }
+            /*
             if (android.server.Flags.telemetryApisService()) {
                 ProfilingFrameworkInitializer.registerServiceWrappers();
             }
+            */
             if (android.webkit.Flags.updateServiceIpcWrapper()) {
                 WebViewBootstrapFrameworkInitializer.registerServiceWrappers();
             }

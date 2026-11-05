@@ -56,8 +56,8 @@ import android.app.backup.BackupAgent;
 import android.app.backup.BackupAnnotations.BackupDestination;
 import android.app.backup.BackupAnnotations.OperationType;
 import android.app.compat.CompatChanges;
-import android.app.sdksandbox.sandboxactivity.ActivityContextInfo;
-import android.app.sdksandbox.sandboxactivity.SdkSandboxActivityAuthority;
+// import android.app.sdksandbox.sandboxactivity.ActivityContextInfo;
+// import android.app.sdksandbox.sandboxactivity.SdkSandboxActivityAuthority;
 import android.app.servertransaction.ActivityLifecycleItem;
 import android.app.servertransaction.ActivityLifecycleItem.LifecycleState;
 import android.app.servertransaction.ActivityRelaunchItem;
@@ -146,8 +146,8 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.PersistableBundle;
 import android.os.Process;
-import android.os.ProfilingFrameworkInitializer;
-import android.os.ProfilingServiceManager;
+// import android.os.ProfilingFrameworkInitializer;
+// import android.os.ProfilingServiceManager;
 import android.os.RemoteCallback;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -3855,24 +3855,8 @@ public final class ActivityThread extends ClientTransactionHandler
                     r.activityInfo.targetActivity);
         }
 
-        boolean isSandboxActivityContext =
-                sandboxActivitySdkBasedContext()
-                        && SdkSandboxActivityAuthority.isSdkSandboxActivityIntent(
-                                mSystemContext, r.intent);
         boolean isSandboxedSdkContextUsed = false;
-        ContextImpl activityBaseContext;
-        if (isSandboxActivityContext) {
-            activityBaseContext = createBaseContextForSandboxActivity(r);
-            if (activityBaseContext == null) {
-                // Failed to retrieve the SDK based sandbox activity context, falling back to the
-                // app based context.
-                activityBaseContext = createBaseContextForActivity(r);
-            } else {
-                isSandboxedSdkContextUsed = true;
-            }
-        } else {
-            activityBaseContext = createBaseContextForActivity(r);
-        }
+        ContextImpl activityBaseContext = createBaseContextForActivity(r);
         Activity activity = null;
         try {
             java.lang.ClassLoader cl;
@@ -4101,40 +4085,12 @@ public final class ActivityThread extends ClientTransactionHandler
      * Creates the base context for the sandbox activity based on its corresponding SDK {@link
      * ApplicationInfo} and flags.
      */
+    /*
     @Nullable
     private ContextImpl createBaseContextForSandboxActivity(@NonNull ActivityClientRecord r) {
-        SdkSandboxActivityAuthority sdkSandboxActivityAuthority =
-                SdkSandboxActivityAuthority.getInstance();
-
-        ActivityContextInfo contextInfo;
-        try {
-            contextInfo = sdkSandboxActivityAuthority.getActivityContextInfo(r.intent);
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, "Passed intent does not match an expected sandbox activity", e);
-            return null;
-        } catch (IllegalStateException e) {
-            Log.e(TAG, "SDK customized context flag is disabled", e);
-            return null;
-        } catch (Exception e) { // generic catch to unexpected exceptions
-            Log.e(TAG, "Failed to create context for sandbox activity", e);
-            return null;
-        }
-
-        final int displayId = ActivityClient.getInstance().getDisplayId(r.token);
-        final LoadedApk sdkApk = getPackageInfo(
-                contextInfo.getSdkApplicationInfo(),
-                r.packageInfo.getCompatibilityInfo(),
-                contextInfo.getContextFlags());
-
-        final ContextImpl activityContext = ContextImpl.createActivityContext(
-                this, sdkApk, r.activityInfo, r.token, displayId, r.overrideConfig);
-
-        // Set sandbox app's context as the application context for sdk context
-        activityContext.mPackageInfo.makeApplicationInner(
-                /*forceDefaultAppClass=*/false, mInstrumentation);
-
-        return activityContext;
+        ...
     }
+    */
 
     /**
      * Extended implementation of activity launch. Used when server requests a launch or relaunch.
@@ -8610,9 +8566,11 @@ public final class ActivityThread extends ClientTransactionHandler
         NfcFrameworkInitializer.setNfcServiceManager(new NfcServiceManager());
         DeviceConfigInitializer.setDeviceConfigServiceManager(new DeviceConfigServiceManager());
         SeFrameworkInitializer.setSeServiceManager(new SeServiceManager());
+        /*
         if (android.server.Flags.telemetryApisService()) {
             ProfilingFrameworkInitializer.setProfilingServiceManager(new ProfilingServiceManager());
         }
+        */
     }
 
     private void purgePendingResources() {
