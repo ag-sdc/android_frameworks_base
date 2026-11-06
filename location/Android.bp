@@ -24,6 +24,8 @@ java_library {
         "app-compat-annotations",
         "unsupportedappusage",
         "framework-minus-apex-headers",
+        "framework-protos",
+        "libprotobuf-java-nano",
     ],
     aidl: {
         include_dirs: [

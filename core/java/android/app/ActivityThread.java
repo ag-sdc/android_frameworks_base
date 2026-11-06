@@ -3006,6 +3006,15 @@ public final class ActivityThread extends ClientTransactionHandler
         }
     }
 
+    /**
+     * Return the current system context.
+     * @hide
+     */
+    public static ContextImpl currentSystemContext() {
+        ActivityThread am = currentActivityThread();
+        return (am != null) ? am.getSystemContext() : null;
+    }
+
     @NonNull
     public ContextImpl getSystemUiContext() {
         return getSystemUiContext(DEFAULT_DISPLAY);
